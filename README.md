@@ -4,12 +4,12 @@ This is a solution for the Locations Challenge.
 - The project is a pure typescript react/next application without any additional libraries.
 - The Locations page is at the http://localhost:3000/locations url.
 - To avoid CORS the api provided is proxied.
-- All tests are under the **tests** folder
-- The screenshots requested are in the root folder
+- All tests are under the **tests** folder.
+- The screenshots requested are in the root folder.
 
 ## The solution
 
-The InfiniteScroll works with the **useInterect** hook which uses an **IntersectionObserver** to trigger the api.
+The InfiniteScroll works with the **useIntersect** hook which uses an **IntersectionObserver** to trigger the api.
 
 ## The project
 
@@ -25,7 +25,7 @@ It's possible to use the container inside the "**getServerSideProps**" api using
 Under the styles folder it's possible to set some css variable.
 The classes file provides some css shorthands similar to "Tailwind".
 
-Components' styles simulate the css-module mechanism (appending an unique identifier to the class name)
+Components' styles simulate the css-module mechanism (appending an unique identifier to the class name).
 In order to easily create an unique identidier for the classes, you can use the **randomgen** script under **/support**. (i.e. *./randomgen 4*  generates a 4-digit identifier every 5 seconds).
 
 
