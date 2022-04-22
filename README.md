@@ -1,34 +1,36 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# Locations Challenge
 
-## Getting Started
+This is a solution for the Locations Challenge.
+- The project is a pure typescript react/next application without any additional libraries.
+- The Locations page is at the http://localhost:3000/locations url.
+- To avoid CORS the api provided is proxied.
+- All tests are under the **tests** folder
+- The screenshots requested are in the root folder
 
-First, run the development server:
+## The solution
 
-```bash
-npm run dev
-# or
-yarn dev
-```
+The InfiniteScroll works with the **useInterect** hook which uses an **IntersectionObserver** to trigger the api.
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## The project
 
-You can start editing the page by modifying `pages/index.tsx`. The page auto-updates as you edit the file.
+The app uses the *Inversion Of Control* pattern to create all the services needed.
+These services are contained in the **IOCContainer** class and they are:
+- **Rest**: which provides an augmented "fetch" with a baseURL included
+- **I18n**: which provides a simple internationaliztion mechanism
+- **Apis**: which provides all the apis of the app
 
-[API routes](https://nextjs.org/docs/api-routes/introduction) can be accessed on [http://localhost:3000/api/hello](http://localhost:3000/api/hello). This endpoint can be edited in `pages/api/hello.ts`.
+The IOCContainer is injected in the React application through the Context APIs.
+It's possible to use the container inside the "**getServerSideProps**" api using the high order function "**withServerSideContainer**" (see the locations.tsx page)
 
-The `pages/api` directory is mapped to `/api/*`. Files in this directory are treated as [API routes](https://nextjs.org/docs/api-routes/introduction) instead of React pages.
+Under the styles folder it's possible to set some css variable.
+The classes file provides some css shorthands similar to "Tailwind".
 
-## Learn More
+Components' styles simulate the css-module mechanism (appending an unique identifier to the class name)
+In order to easily create an unique identidier for the classes, you can use the **randomgen** script under **/support**. (i.e. *./randomgen 4*  generates a 4-digit identifier every 5 seconds).
 
-To learn more about Next.js, take a look at the following resources:
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## Usage
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+    yarn install //Install dependencies
+    yarn dev //Start project
+    yarn test //Run tests

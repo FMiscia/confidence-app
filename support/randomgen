@@ -1,0 +1,16 @@
+#!/usr/bin/env bash
+
+set -e # errexit
+set -u # nounset
+
+Dir="$(cd "$(dirname "$0")" && pwd)"
+
+: ${Sleep:=5}
+
+cd "$Dir"
+
+while true; do
+        clear
+        ./random ${1:-}
+        sleep $Sleep
+done

@@ -1,0 +1,13 @@
+.BSpinner-a566 {
+    border: 1px solid var(--std-color-primary-accent);
+    border-top: 1px solid var(--std-color-separator);
+    border-radius: 50%;
+    width: 25px;
+    height: 25px;
+    animation: spin 2s linear infinite;
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}

@@ -1,0 +1,7 @@
+#!/usr/bin/env bash
+
+set -e # errexit
+set -u # nounset
+
+# md5 -q -s "${RANDOM}${RANDOM}" # MacOS only.
+echo "${RANDOM}${RANDOM}" | md5sum | cut -c 1-${1:-32}
