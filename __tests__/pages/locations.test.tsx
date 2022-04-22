@@ -23,7 +23,7 @@ jest.mock("../../services/index", () => {
             }) => {
                 const locations = Array.from(Array(30), (_, x) => {
                     return {
-                        id: 95144,
+                        id: x,
                         locationId: "HOM49XD6",
                         locationName: "Non Seq - Amit's workspace",
                         locationDetails: "",
