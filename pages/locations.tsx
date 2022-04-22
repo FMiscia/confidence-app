@@ -54,7 +54,7 @@ function Locations() {
                 const street = `${it.address.addressLine1} ${it.address?.addressLine2 ?? ''}`
                 const address = `${street}, ${it.address.city}, ${it.address.zip}, ${it.address.state}`
                 return (
-                    <div key={index} ref={(r) => isLast && setNode(r)}>
+                    <div key={it.id} ref={(r) => isLast && setNode(r)}>
                         <BTableRow
                             values={[
                                 it.locationDetails || "-",
