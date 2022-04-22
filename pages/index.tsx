@@ -5,7 +5,7 @@ const Home: NextPage = () => {
         <div className="std flex-column align-center">
             <h1>Confidence Challenge</h1>
             <Link href="/locations">
-                <a className="font-light">Go to Location page</a>
+                <a className="font-light">Go to Locations page</a>
             </Link>
         </div>
     )
