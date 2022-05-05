@@ -17,10 +17,11 @@ beforeEach(() => {
 })
 
 afterEach(() => {
-   container = undefined
+    container = undefined
 })
 
-
-it("Rest provider should return function", () => {
-    expect(typeof rest).toBe("function")
+it("Rest provider should return an object", () => {
+    expect(typeof rest).toBe("object")
+    expect(typeof rest.fetch).toBe("function")
+    expect(typeof rest.setDefaults).toBe("function")
 })

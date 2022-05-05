@@ -33,8 +33,7 @@ const fetchLocationsAPI = async (
         )
     }
 
-
-    const result = await container.rest("confidence/locations", {
+    const result = await container.rest.fetch("confidence/locations", {
         method: "post",
         headers: {
             "content-type": "application/json",

@@ -1,3 +1,5 @@
+import styles from "./BTableRow.module.css"
+
 const BTableRow = ({
     values,
     footer,
@@ -10,7 +12,7 @@ const BTableRow = ({
         <div
             {...rest}
             data-testid="btablerow"
-            className={`BTableRow-item-5f13 flex-row justify-between ${rest?.className}`}
+            className={`${styles.BTableRowItem} flex-row justify-between ${rest?.className}`}
         >
             {values.map((it, index) => (
                 <div
