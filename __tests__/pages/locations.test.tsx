@@ -1,7 +1,6 @@
 import React from "react"
 import "@testing-library/jest-dom"
-import { createRoot, Root } from "react-dom/client"
-import { screen, waitFor } from "@testing-library/react"
+import { render, screen, waitFor } from "@testing-library/react"
 import { act } from "react-dom/test-utils"
 import Locations from "../../pages/locations"
 
@@ -10,7 +9,10 @@ testThis.IS_REACT_ACT_ENVIRONMENT = true
 
 jest.mock("../../services/index", () => {
     const ioc = {
-        rest: jest.fn(),
+        rest: {
+            fetch: jest.fn(),
+            setDefaults: jest.fn(),
+        },
         i18n: (lan: string) => ({
             locationDetails: "Location details",
             address: "Address",
@@ -63,8 +65,6 @@ jest.mock("../../hooks/useAppQuery", () => {
     }
 })
 
-let container: HTMLDivElement
-let root: Root
 let observer: { instance: IntersectionObserver; item: Item } | undefined
 
 function triggerIntersection() {
@@ -89,8 +89,6 @@ type Item = {
 }
 
 beforeEach(() => {
-    container = document.createElement("div")
-    document.body.appendChild(container)
     global.IntersectionObserver = jest.fn((cb, options = {}) => {
         const item = {
             callback: cb,
@@ -112,13 +110,11 @@ beforeEach(() => {
 })
 
 afterEach(() => {
-    container.remove()
     observer = undefined
 })
 
 const renderComponent = () => {
-    root = createRoot(container!)
-    root.render(<Locations />)
+    render(<Locations />)
 }
 
 it("Locations must show a single BTableHeader with the correct labels", async () => {

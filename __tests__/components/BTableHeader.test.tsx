@@ -1,27 +1,14 @@
 import React from "react"
 import "@testing-library/jest-dom"
-import { screen } from "@testing-library/react";
-import { createRoot, Root } from "react-dom/client"
+import { screen, render } from "@testing-library/react";
 import { act } from "react-dom/test-utils"
 import BTableHeader from "../../components/BTableHeader"
 
 const testThis = globalThis as any
 testThis.IS_REACT_ACT_ENVIRONMENT = true
 
-let container: HTMLDivElement
-let root: Root
-beforeEach(() => {
-    container = document.createElement("div")
-    document.body.appendChild(container)
-})
-
-afterEach(() => {
-    container.remove()
-})
-
 const renderComponent = () => {
-    root = createRoot(container!)
-    root.render(<BTableHeader values={["title1", "title2", "title3"]} />)
+    render(<BTableHeader values={["title1", "title2", "title3"]} />)
 }
 
 it("BTableHeader shows all the titles in the values prop", async () => {
