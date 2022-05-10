@@ -1,7 +1,6 @@
 import React from "react"
 import "@testing-library/jest-dom"
-import { render, screen, waitFor } from "@testing-library/react"
-import { act } from "react-dom/test-utils"
+import { render, screen, waitFor, act } from "@testing-library/react"
 import Locations from "../../pages/locations"
 
 const testThis = globalThis as any

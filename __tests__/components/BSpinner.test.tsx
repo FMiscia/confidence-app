@@ -1,8 +1,7 @@
 
 import React from "react"
 import "@testing-library/jest-dom"
-import { screen, render } from "@testing-library/react"
-import { act } from "react-dom/test-utils"
+import { screen, render, act } from "@testing-library/react"
 import BSpinner from "../../components/BSpinner"
 
 const testThis = globalThis as any
